@@ -36,7 +36,7 @@ accuracy_file = args.accuracy_file
 scoring_url = args.scoring_url
 
 # Define model and service names
-service_name = 'object-recognition-service'
+service_name = 'object-reco-service'
 model_name = 'object-recognition-pipeline'
 
 # Get run context

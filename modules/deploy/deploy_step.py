@@ -32,6 +32,7 @@ def deploy_step(model_dir, accuracy_file, test_dir, compute_target):
     outputs_map = { 'scoring_url': scoring_url }
 
     step = PythonScriptStep(
+        name="Deploy Model",
         script_name='deploy.py',
         arguments=[
             '--model_dir', model_dir, 

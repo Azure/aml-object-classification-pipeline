@@ -54,6 +54,7 @@ def data_preprocess_step(raw_data_dir, compute_target):
     }
 
     step = PythonScriptStep(
+        name="Preprocess Data",
         script_name='data_preprocess.py',
         arguments=[
             '--raw_data_dir', raw_data_dir, 

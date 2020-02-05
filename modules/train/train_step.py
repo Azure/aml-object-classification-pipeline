@@ -46,6 +46,7 @@ def train_step(train_dir, valid_dir, compute_target):
         use_gpu=True)
 
     step = EstimatorStep(
+        name="Train Model",
         estimator=estimator,
         estimator_entry_script_arguments=[
             '--train_dir', train_dir, 

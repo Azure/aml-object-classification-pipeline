@@ -40,6 +40,7 @@ def evaluate_step(model_dir, test_dir, compute_target):
         use_gpu=True)
 
     step = EstimatorStep(
+        name="Evaluate Model",
         estimator=estimator,
         estimator_entry_script_arguments=[
             '--test_dir', test_dir, 

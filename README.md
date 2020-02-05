@@ -1,17 +1,17 @@
 # Azure Machine Learning Pipelines Demo
 
-An [Azure Machine Learning pipeline](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines) is an independently executable workflow of a complete machine learning task. Subtasks are encapsulated as a series of steps within the pipeline. Each step is an executable module of code which can have inputs and produce outputs (which can then be consumed by other steps as inputs). 
+An [Azure Machine Learning pipeline](https://aka.ms/pl-concept) is an independently executable workflow of a complete machine learning task. Subtasks are encapsulated as a series of steps within the pipeline. Each step is an executable module of code which can have inputs and produce outputs (which can then be consumed by other steps as inputs). 
 
 ![](images/aml-pipeline-flow.png)
 
 There are multiple advantages to using pipelines:
 
-- It allows data scientists to seperate tasks into non-overlapping components, enabling collaboration and development in parallel.
+- It allows data scientists to separate tasks into non-overlapping components, enabling collaboration and development in parallel.
 - It allows teams and organizations to create reusable templates for common tasks.
-- It allows more optimal usage of compute resources (eg. data preparation steps can be run on a CPU, while model training steps run on a GPU).
-- If enabled, it allows the cached output of a step to be reused in cases where re-running it would not give a different result (eg. a step for preprocessing data would not run again if the inputs and source code remains the same - it would just use the same output from the previous run).
+- It allows more optimal usage of compute resources (e.g., data preparation steps can be run on a CPU, while model training steps run on a GPU).
+- If enabled, it allows the cached output of a step to be reused in cases where re-running it would not give a different result (e.g., a step for preprocessing data would not run again if the inputs and source code remains the same - it would just use the same output from the previous run).
 
-The following repository shows an exampe of how you can use the Azure Machine Learning SDK to create a pipeline. 
+The following repository shows an example of how you can use the Azure Machine Learning SDK to create a pipeline. 
 
 ## Object Recognition Problem
 
@@ -23,7 +23,7 @@ In order to show the example, we will be training a model that is able to classi
 
 `Output`: Reference to directory containing the raw data.
 
-This step will leverage [Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) to search the web for images to create our dataset. This replicates the real-world scenario of data being ingested from a constantly changing source. For this demo, we will use the same 10 classes in the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) (airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck). All images will be saved into a directory in the inputed datastore reference.
+This step will leverage [Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) to search the web for images to create our dataset. This replicates the real-world scenario of data being ingested from a constantly changing source. For this demo, we will use the same 10 classes in the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) (airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck). All images will be saved into a directory in the input datastore reference.
 
 #### Step 2: Preprocess Data
 

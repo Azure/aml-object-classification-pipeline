@@ -4,15 +4,15 @@ from azureml.core.runconfig import RunConfiguration
 from azureml.pipeline.core import PipelineData
 from azureml.pipeline.core import PipelineParameter
 
-def data_ingestion_step(datastore_reference, compute_target):
+def data_ingestion_step(datastore, compute_target):
     '''
     This step will leverage Azure Cognitive Services to search the web for images 
     to create a dataset. This replicates the real-world scenario of data being 
     ingested from a constantly changing source. The same 10 classes in the CIFAR-10 dataset 
     will be used (airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck). 
 
-    :param datastore_reference: The reference to the datastore that will be used
-    :type datastore_reference: DataReference
+    :param datastore: The datastore that will be used
+    :type datastore: Datastore
     :param compute_target: The compute target to run the step on
     :type compute_target: ComputeTarget
     
@@ -29,7 +29,7 @@ def data_ingestion_step(datastore_reference, compute_target):
     raw_data_dir = PipelineData(
         name='raw_data_dir', 
         pipeline_output_name='raw_data_dir',
-        datastore=datastore_reference.datastore,
+        datastore=datastore,
         output_mode='mount',
         is_directory=True)
 
@@ -37,9 +37,9 @@ def data_ingestion_step(datastore_reference, compute_target):
     outputs_map = { 'raw_data_dir': raw_data_dir }
 
     step = PythonScriptStep(
+        name="Data Ingestion",
         script_name='data_ingestion.py',
         arguments=['--output_dir', raw_data_dir, '--num_images', num_images],
-        inputs=[datastore_reference],
         outputs=outputs,
         compute_target=compute_target,
         source_directory=os.path.dirname(os.path.abspath(__file__)),
