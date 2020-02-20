@@ -23,7 +23,7 @@ parser.add_argument('--image_url', type=str, help='URL of the image to score', d
 image_url = parser.parse_args().image_url
 
 # get scoring url
-aci_service_name = 'object-recognition-service'
+aci_service_name = 'object-reco-service'
 workspace = Workspace.from_config()
 aci_service = Webservice(workspace, name=aci_service_name)
 scoring_url = aci_service.scoring_uri
