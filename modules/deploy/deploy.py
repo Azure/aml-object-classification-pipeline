@@ -17,7 +17,7 @@ def register_model(model_dir, model_name, accuracy, test_dir, workspace):
             'accuracy': accuracy, 
             'test_data': test_dir
         },
-        description='Object recognition classifier',
+        description='Object classifier',
         workspace=workspace)
     return model
 
@@ -36,8 +36,8 @@ accuracy_file = args.accuracy_file
 scoring_url = args.scoring_url
 
 # Define model and service names
-service_name = 'object-reco-service'
-model_name = 'object-recognition-pipeline'
+service_name = 'object-classification-service'
+model_name = 'object-classification-pipeline'
 
 # Get run context
 run = Run.get_context()

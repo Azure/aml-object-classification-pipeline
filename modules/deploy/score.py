@@ -32,7 +32,7 @@ def base64ToImg(base64ImgString):
 
 def init():
     global model, classes
-    model_path = Model.get_model_path('object-recognition-pipeline')
+    model_path = Model.get_model_path('object-classification-pipeline')
     model = torch.load(os.path.join(model_path,'model.pt'), map_location=torch.device('cpu'))
     model.eval()
     pkl_file = open(os.path.join(model_path,'class_names.pkl'), 'rb')
