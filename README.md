@@ -13,7 +13,7 @@ There are multiple advantages to using pipelines:
 
 The following repository shows an example of how you can use the Azure Machine Learning SDK to create a pipeline. 
 
-## Object Recognition Problem
+## Object Classification Problem
 
 In order to show the example, we will be training a model that is able to classify objects belonging to a list of categories. We will build our own dataset, train a model on it, and deploy the result to a webservice. More specifically, the pipeline will be split into the following steps.
 
@@ -67,12 +67,13 @@ Once your workspace has been created, fill in the `config.json` file with the de
 
 #### Create Cognitive Services API Key
 
-The pipeline script requires an environment variable to be set with your Cognitive Services API key, since we use the service in the data ingestion step. Follow [these steps](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) to create your API Key.
+The pipeline script requires two environment variable to be set (COGNITIVE_SERVICES_API_KEY and AZURE_REGION), since we use Azure Cognitive Services in the data ingestion step. Follow [these steps](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) to create your API Key.
 
-Once you've created an API key, set it to an environment variable named `COGNITIVE_SERVICES_API_KEY`.
+Once you've created an API key, set the environment variables.
 
 ```
 export COGNITIVE_SERVICES_API_KEY='<YOUR API KEY>'
+export AZURE_REGION='<COGNITIVE SERVICE REGION>'
 ```
 
 #### Install Azure Machine Learning SDK
@@ -85,13 +86,13 @@ pip install azureml-sdk
 
 ## Run The Pipeline
 
-Run the `object-recognition-pipeline.py` script to execute the pipeline.
+Run the `object-classification-pipeline.py` script to execute the pipeline.
 
 ```
-python object-recognition-pipeline.py
+python object-classification-pipeline.py
 ```
 
-To monitor the run and see the results, go to the **[Azure Machine Learning Studio](https://ml.azure.com/)** > *Select your workspace* -> **Experiments** > **object-recognition-pipeline** > *Latest Run ID*.
+To monitor the run and see the results, go to the **[Azure Machine Learning Studio](https://ml.azure.com/)** > *Select your workspace* -> **Experiments** > **Object-Classification-Demo** > *Latest Run ID*.
 
 *The final pipeline should look something like this.*
 

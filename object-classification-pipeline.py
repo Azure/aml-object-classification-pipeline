@@ -59,4 +59,4 @@ pipeline_parameters = {
     'momentum': 0.9
 }
 pipeline = Pipeline(workspace=workspace, steps=[data_ingestion_step, data_preprocess_step, train_step, evaluate_step, deploy_step])
-pipeline_run = Experiment(workspace, 'Object-Recognition-Demo').submit(pipeline, pipeline_parameters=pipeline_parameters)
+pipeline_run = Experiment(workspace, 'Object-Classification-Demo').submit(pipeline, pipeline_parameters=pipeline_parameters)
