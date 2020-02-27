@@ -67,13 +67,12 @@ Once your workspace has been created, fill in the `config.json` file with the de
 
 #### Create Cognitive Services API Key
 
-The pipeline script requires two environment variable to be set (COGNITIVE_SERVICES_API_KEY and AZURE_REGION), since we use Azure Cognitive Services in the data ingestion step. Follow [these steps](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) to create your API Key.
+The pipeline script requires an environment variable to be set with your Cognitive Services API key, since we use the service in the data ingestion step. Follow [these steps](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) to create your API Key.
 
-Once you've created an API key, set the environment variables.
+Once you've created an API key, set it to an environment variable named `COGNITIVE_SERVICES_API_KEY`.
 
 ```
 export COGNITIVE_SERVICES_API_KEY='<YOUR API KEY>'
-export AZURE_REGION='<COGNITIVE SERVICE REGION>'
 ```
 
 #### Install Azure Machine Learning SDK
