@@ -53,7 +53,7 @@ try:
     model = Model(workspace, model_name)
     prev_accuracy = model.tags['accuracy']
     prev_test_dir = model.tags['test_data']
-    if prev_test_dir != test_dir or prev_accuracy >= accuracy:
+    if prev_test_dir != test_dir or prev_accuracy < accuracy:
         model = register_model(model_dir, model_name, accuracy, test_dir, workspace)
         new_model = True
 except WebserviceException:
