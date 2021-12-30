@@ -18,9 +18,9 @@ headers = requests.utils.default_headers()
 headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
 
 # Define API endpoints
-subscription_key = os.environ['COGNITIVE_SERVICES_API_KEY']
-region = os.environ['AZURE_REGION']
-search_url = f'https://{region}.api.cognitive.microsoft.com/bing/v7.0/images/search'
+subscription_key = os.environ['BING_SEARCH_V7_SUBSCRIPTION_KEY']
+endpoint = os.environ['BING_SEARCH_V7_ENDPOINT']
+search_url = endpoint + "v7.0/images/search"
 
 # Define classes
 classes = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
