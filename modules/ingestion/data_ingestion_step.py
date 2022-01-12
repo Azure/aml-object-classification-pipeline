@@ -22,7 +22,8 @@ def data_ingestion_step(datastore, compute_target):
 
     run_config = RunConfiguration()
     run_config.environment.environment_variables = {
-        'COGNITIVE_SERVICES_API_KEY': os.environ['COGNITIVE_SERVICES_API_KEY'],
+        'BING_SEARCH_V7_SUBSCRIPTION_KEY': os.environ['BING_SEARCH_V7_SUBSCRIPTION_KEY'],
+        'BING_SEARCH_V7_ENDPOINT': os.environ['BING_SEARCH_V7_ENDPOINT'],
         'AZURE_REGION': datastore._workspace.location
         }
     run_config.environment.docker.enabled = True

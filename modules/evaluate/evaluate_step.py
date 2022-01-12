@@ -18,7 +18,7 @@ def evaluate_step(model_dir, test_dir, compute_target):
     :param compute_target: The compute target to run the step on
     :type compute_target: ComputeTarget
     
-    :return: The preprocess step, step outputs dictionary (keys: accuracy_file)
+    :return: The evaluate step, step outputs dictionary (keys: accuracy_file)
     :rtype: EstimatorStep, dict
     '''
 

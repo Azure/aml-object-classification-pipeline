@@ -23,7 +23,7 @@ In order to show the example, we will be training a model that is able to classi
 
 `Output`: Reference to directory containing the raw data.
 
-This step will leverage [Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) to search the web for images to create our dataset. This replicates the real-world scenario of data being ingested from a constantly changing source. For this demo, we will use the same 10 classes in the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) (airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck). All images will be saved into a directory in the input datastore reference.
+This step will leverage [Bing Image Search REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/quickstarts/python) to search the web for images to create our dataset. This replicates the real-world scenario of data being ingested from a constantly changing source. For this demo, we will use the same 10 classes in the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) (airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck). All images will be saved into a directory in the input datastore reference.
 
 #### Step 2: Preprocess Data
 
@@ -65,15 +65,22 @@ Follow the first part of [this tutorial](https://docs.microsoft.com/en-us/azure/
 
 Once your workspace has been created, fill in the `config.json` file with the details of your workspace.
 
-#### Create Cognitive Services API Key
+#### Create Bing Search API Key 
 
-The pipeline script requires two environment variable to be set (COGNITIVE_SERVICES_API_KEY and AZURE_REGION), since we use Azure Cognitive Services in the data ingestion step. Follow [these steps](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) to create your API Key.
+The pipeline script requires two environment variable to be set (BING_SEARCH_V7_SUBSCRIPTION_KEY and BING_SEARCH_V7_ENDPOINT), since we use Bing Image Search Services (now moved away from Azure Cognitive Services) in the data ingestion step. Follow [these steps](https://docs.microsoft.com/en-us/bing/search-apis/bing-web-search/create-bing-search-service-resource) to create your API Key.
 
 Once you've created an API key, set the environment variables.
 
+For Linux:
 ```
-export COGNITIVE_SERVICES_API_KEY='<YOUR API KEY>'
-export AZURE_REGION='<COGNITIVE SERVICE REGION>'
+export BING_SEARCH_V7_SUBSCRIPTION_KEY='<YOUR API KEY>'
+export BING_SEARCH_V7_ENDPOINT='<YOUR BING SEARCH ENDPOIN>'
+```
+
+For Windows:
+```
+setx BING_SEARCH_V7_SUBSCRIPTION_KEY '<YOUR API KEY>'
+setx BING_SEARCH_V7_ENDPOINT '<YOUR BING SEARCH ENDPOINT>'
 ```
 
 #### Install Azure Machine Learning SDK

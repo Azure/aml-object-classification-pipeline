@@ -17,7 +17,7 @@ def deploy_step(model_dir, accuracy_file, test_dir, compute_target):
     :param compute_target: The compute target to run the step on
     :type compute_target: ComputeTarget
     
-    :return: The preprocess step, step outputs dictionary (keys: scoring_url)
+    :return: The deploy step, step outputs dictionary (keys: scoring_url)
     :rtype: PythonScriptStep, dict
     '''
 
